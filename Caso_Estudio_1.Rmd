@@ -1,0 +1,294 @@
+---
+title: "Caso de Estudio 1"
+author: "Equipo"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    df_print: paged
+    code_folding: show
+    theme: readable
+fontsize: 12pt
+editor_options:
+  chunk_output_type: console
+---
+
+# 1) Descripción del caso
+
+**Curso:** 42-0198 Estadística para el análisis de datos  
+**Objetivo:** Realizar un análisis exploratorio reproducible del dataset `Salary_Data.csv` para obtener insights para RR. HH.
+
+# 2) Importación y preparación
+
+### 2.1 Importa el archivo y verifica su estructura
+
+Importar archivo
+
+```{r}
+# Cargar librerías principales
+library(tidyverse)
+
+# Importar el archivo (está en el mismo folder del proyecto en Posit Cloud)
+salary_data <- read_csv("Salary_Data.csv")
+
+# Revisar estructura general
+
+```
+
+_(Escribe aquí tu propio código para leer el dataset, verificar columnas, tipos de datos, número de filas y una vista inicial. Pueden usar funciones como head, glimpse, contar NA,...)_
+
+ **Análisis:** Redacta un párrafo donde comentes la estructura general del conjunto de datos, las variables que contiene y cualquier observación inicial relevante.
+ 
+ 
+ 
+ 
+
+### 2.2 Limpieza y estandarización de categorías
+
+**Ejemplo orientativo:**
+```{r}
+# Limpiar nombres de columnas y estandarizar categorías
+salary_data <- salary_data %>%
+  janitor::clean_names() %>%
+  mutate(
+    gender = str_to_title(gender),
+    education_level = str_to_title(education_level),
+    job_title = str_to_title(job_title)
+  )
+```
+
+_(Aplica pasos similares para limpiar los datos: validar rangos válidos, estandarizar variables categóricas y tratar valores faltantes.)_
+
+
+
+
+📝 **Análisis:** Explica en un párrafo las decisiones de limpieza aplicadas y justifica cómo contribuyen a la calidad del análisis. Además, explica los criterios utilizados para manejar valores atípicos o faltantes.
+
+
+
+
+
+
+
+
+
+
+# 3) Análisis univariado
+
+### 3.1 Calcula y reporta las siguientes medidas para Age, Years of Experience y Salary:
+- Media, mediana, mínimo, máximo, rango, desviación estándar, varianza, Q1, Q3, IQR y coeficiente de variación.
+
+```{r}
+
+
+
+```
+
+_(Incluye tablas con los resultados e interpreta brevemente cada una.)_
+
+📝 **Análisis:** Redacta un párrafo donde interpretes las medidas descriptivas, explicando qué reflejan sobre la población analizada.
+
+
+
+
+
+
+
+
+
+### 3.2 Crea histogramas para Salary y Years of Experience
+_(Genera los histogramas con ejes rotulados, agrega títulos y escribe una breve interpretación de la forma de la distribución.)_
+
+```{r}
+
+```
+
+
+📝 **Análisis:** Escribe un párrafo explicando la forma de las distribuciones, si son simétricas o sesgadas, y qué implicaciones tienen.
+
+
+
+
+
+
+
+
+
+### 3.3 Crea un boxplot para Salary
+_(Usa el boxplot para identificar asimetrías y outliers; interpreta los resultados.)_
+
+```{r}
+
+```
+
+📝 **Análisis:** Comenta en un párrafo sobre la presencia de outliers y lo que podrían indicar respecto a variabilidad salarial.
+
+
+
+
+
+
+
+
+
+# 4) Análisis bivariado / multivariado
+
+### 4.1 Relación Salary–Years of Experience
+_(Crea un gráfico de dispersión con línea de tendencia, calcula la correlación e interpreta su magnitud y signo.)_
+
+```{r}
+
+```
+
+📝 **Análisis:** Explica en un párrafo qué tipo de relación observas entre la experiencia y el salario, indicando si es débil, moderada o fuerte.
+
+
+
+
+
+
+
+
+
+### 4.2 Brecha por género
+_(Compara las medianas y los IQR de Salary entre géneros. Discute si hay diferencias sistemáticas.)_
+
+```{r}
+
+```
+
+📝 **Análisis:** Redacta un párrafo analizando si existe una brecha salarial entre géneros y cuál es su magnitud.
+
+
+
+
+
+
+
+
+### 4.3 Efecto del nivel educativo
+_(Compara medianas e IQR entre Bachelor’s, Master’s y PhD. Analiza si hay diferencias y cuál es su magnitud.)_
+
+```{r}
+
+```
+
+📝 **Análisis:** Escribe un párrafo interpretando cómo varía el salario con el nivel educativo y qué conclusiones se pueden extraer.
+
+
+
+
+
+
+
+
+
+
+
+### 4.4 Ranking de roles (Job Title)
+_(Construye un ranking con los 10 roles con mayor mediana salarial e interpreta la variabilidad de cada uno.)_
+
+```{r}
+
+```
+
+
+📝 **Análisis:** Redacta un párrafo explicando qué roles presentan mayores salarios y cómo se comporta la variabilidad entre ellos.
+
+
+
+
+
+
+
+
+
+
+### 4.5 Interacción Education Level × Gender
+_(Si los datos lo permiten, analiza patrones combinando ambos factores sobre Salary y representa los resultados en un gráfico de barras agrupadas.)_
+
+```{r}
+
+```
+
+📝 **Análisis:** Escribe un párrafo interpretando las diferencias combinadas entre género y nivel educativo.
+
+
+
+
+
+
+
+
+
+
+# 5) Visualizaciones
+
+Incluye al menos **3 gráficos** de los siguientes tipos:
+- Barras agrupadas (Salary por Gender y Education Level)
+- Boxplot (Salary por Education Level o Job Title)
+- Dispersión (Salary–Years of Experience)
+- Barras horizontales (Top 10 Job Titles por mediana)
+
+_Añade títulos informativos, ejes rotulados y notas metodológicas breves._
+
+#Gráfico 1
+
+```{r}
+
+```
+
+#Gráfico 2
+
+```{r}
+
+```
+
+
+#Gráfico 3
+
+```{r}
+
+```
+
+
+📝 **Análisis:** Agrega un párrafo general analizando qué te permitió descubrir cada gráfico y cómo contribuyen a responder las preguntas guía del caso.
+
+
+
+
+
+
+
+
+
+# 6) Interpretación y conclusiones
+
+Redacta un texto (300–500 palabras) que incluya:
+- Significado de la **mediana**, **IQR** y **CV%** para decisiones de RR. HH.
+- Resumen de hallazgos clave: brecha por género, efecto del nivel educativo, retorno de la experiencia, roles mejor pagados y outliers.
+- Al menos **3 recomendaciones accionables** (bandas por rol/seniority, revisión de equidad, upskilling, retención de roles críticos).
+- Limitaciones del dataset y sugerencias de datos adicionales a recolectar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+**Consejos:**
+- Prioriza la **mediana** y el **IQR** para comparar grupos.
+- Documenta cada paso de limpieza y justifica tus decisiones.
+- Usa títulos claros y notas metodológicas breves en cada figura.
+- Guarda tu proyecto completo en **Posit Cloud** para evaluación y presentación.
